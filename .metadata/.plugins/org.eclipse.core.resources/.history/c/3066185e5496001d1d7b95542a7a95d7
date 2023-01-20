@@ -1,0 +1,85 @@
+package fr.eni.demo;
+
+import java.awt.Dimension;
+import java.awt.HeadlessException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class EcranStagiaire extends JFrame{
+	
+	private JTextField txtNom;
+	private JLabel lblNom;
+	private JPanel panBoutons;
+	private JButton btnAjouter, btnAnnuler;
+	
+	public EcranStagiaire() throws HeadlessException {
+		super();
+		
+		this.setTitle("Stagiaire");
+		this.setSize(new Dimension(500,500));
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
+	}
+
+	public JTextField getTxtNom() {
+		if (txtNom == null) {
+			txtNom = new JTextField();
+		}
+		return txtNom;
+	}
+
+	public void setTxtNom(JTextField txtNom) {
+		this.txtNom = txtNom;
+	}
+
+	public JLabel getLblNom() {
+		
+		if (lblNom == null) {
+			lblNom = new JLabel();
+		}
+		return lblNom;
+	}
+
+	public void setLblNom(JLabel lblNom) {
+		this.lblNom = lblNom;
+	}
+
+	public JPanel getPanBoutons() {
+		if (panBoutons == null) {
+			panBoutons = new JPanel();
+		}
+		return panBoutons;
+	}
+
+	public void setPanBoutons(JPanel panBoutons) {
+		this.panBoutons = panBoutons;
+	}
+
+	public JButton getBtnAjouter() {
+		if (btnAjouter == null) {
+			btnAjouter = new JButton();
+		}
+		return btnAjouter;
+	}
+
+	public void setBtnAjouter(JButton btnAjouter) {
+		this.btnAjouter = btnAjouter;
+	}
+
+	public JButton getBtnAnnuler() {
+		if (btnAnnuler == null) {
+			btnAnnuler = new JButton();
+		}
+		return btnAnnuler;
+	}
+
+	public void setBtnAnnuler(JButton btnAnnuler) {
+		this.btnAnnuler = btnAnnuler;
+	}
+	
+
+}

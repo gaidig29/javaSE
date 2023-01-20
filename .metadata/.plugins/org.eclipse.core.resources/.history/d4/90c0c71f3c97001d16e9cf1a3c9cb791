@@ -1,0 +1,46 @@
+package fr.eni.demoJtable.ihm;
+
+import java.util.List;
+
+import javax.swing.table.AbstractTableModel;
+
+public class TableContactModel extends AbstractTableModel {
+
+	private List<ContactTable> contacts;
+	
+	public TableContactModel(List<ContactTable> contacts) {
+		super();
+		this.contacts = contacts;
+	}
+	
+	private String[] columnNames = {"Prenom","Nom"};
+
+	@Override
+	public int getRowCount() {
+		// TODO Auto-generated method stub
+		return contacts.size();
+	}
+
+	@Override
+	public int getColumnCount() {
+		// TODO Auto-generated method stub
+		return columnNames.length;
+	}
+
+	@Override
+	public Object getValueAt(int rowIndex, int columnIndex) {
+		Object val = null;
+		switch(columnIndex) {
+		case ContactTable.COL_PRENOM:
+			val = contacts.get(columnIndex).getPrenom();
+			break;
+		case ContactTable.COL_NOM:
+			val = contacts.get(columnIndex).getNom();
+			break;
+			
+		}
+		return null;
+	}
+	
+
+}

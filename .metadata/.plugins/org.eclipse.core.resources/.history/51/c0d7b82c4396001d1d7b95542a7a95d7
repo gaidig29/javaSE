@@ -1,0 +1,25 @@
+package fr.eni.random.ihm;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class JPanel1 extends JPanel{
+
+	JLabel jl1 = new JLabel("Nom : ");
+	JTextField jt1 = new JTextField(20);
+	JButton jb1 = new JButton("Ajouter");
+	JButton jb2 = new JButton("Supprimer");
+	JButton jb3 = new JButton("Tirage au sort");
+	
+	public JPanel1() {
+		super();
+		this.add(jl1);
+		this.add(jt1);
+		this.add(jb1);
+		this.add(jb2);
+		this.add(jb3);
+	}
+
+}

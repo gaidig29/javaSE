@@ -1,0 +1,101 @@
+package fr.eni.random.ihm;
+
+import java.awt.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import fr.eni.random.bll.Imetier;
+import fr.eni.random.bll.PersonneManager;
+import fr.eni.random.bo.Personne;
+
+public class JPanel1 extends JPanel{
+
+	JLabel jl1 = new JLabel("Nom : ");
+	JTextField jt1 = new JTextField(20);
+	JButton jb1 = new JButton("Ajouter");
+	JButton jb2 = new JButton("Supprimer");
+	JButton jb3 = new JButton("Tirage au sort");
+	
+	public JPanel1() {
+		super();
+		
+		Imetier pmger = new PersonneManager();
+
+		this.add(jl1);
+		this.add(jt1);
+		this.add(jb1);
+		this.add(jb2);
+		this.add(jb3);
+
+		JList list1;
+		List list2 = new List();
+		java.util.List<Personne> listP = new ArrayList<>();
+		DefaultListModel<Personne> listModel = new DefaultListModel<>();
+
+		listP = pmger.recupToutLeMonde();
+
+		jb1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String s = jt1.getText();
+				Personne personneAEnregistrer = new Personne();
+				personneAEnregistrer.setNom(s);
+				pmger.enregistrerUnePersonneEnBase(personneAEnregistrer);
+				listP = pmger.recupToutLeMonde();
+				listModel.clear();
+				for (Personne p : listP) {
+					listModel.addElement(p);
+				}
+				list1.updateUI();
+
+				jt1.setText("");
+				jt1.requestFocus();
+
+			}
+		});
+	
+
+		jb2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// index dans la liste afficher
+				if (list1.getSelectedIndex() != -1) {
+					int num = list1.getSelectedIndex();
+					pmger.supprimerUnePersonneEnBase(listModel.get(num).getId());
+					listP = pmger.recupToutLeMonde();
+					listModel.clear();
+					for (Personne p : listP) {
+						listModel.addElement(p);
+					}
+					list1.updateUI();
+				}
+
+			}
+		});
+		
+		
+		jb3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				listP = pmger.recupToutLeMonde();
+				Personne p=pmger.tirageAuSort(listP);
+				list2.add(p.getNom());
+
+			}
+		});
+	}
+	
+	
+
+}

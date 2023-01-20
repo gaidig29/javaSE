@@ -1,0 +1,8 @@
+package fr.eni.random.bll;
+
+public interface Imetier {
+
+	public List<Personne> recupToutLeMonde();
+	public boolean enregistrerUnePersonne(Personne p);
+	public boolean supprimerUnePersonneEnBase(Long id);
+	public Personne tirageAuSort(List<Personne>liste);

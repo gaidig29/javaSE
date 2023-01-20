@@ -1,0 +1,14 @@
+package fr.eni.papeterie.designPatern;
+
+import fr.eni.papeterie.ihm.ObservableConcret;
+import fr.eni.papeterie.ihm.Observer;
+
+public class ObserverImpl2 implements Observer {
+
+	@Override
+	public void update(Observable o) {
+		int etat = ((ObservableConcret)o).getEtat();
+		System.out.println("Résultat 2 de l'état" + etat);
+	}
+
+}

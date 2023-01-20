@@ -1,0 +1,34 @@
+package fr.eni.inscrite.dal;
+
+import java.lang.reflect.InvocationTargetException;
+import fr.eni.papeterie.dal.jdbc.ArticleDAOJdbcImpl;
+import fr.eni.papeterie.dal.ArticleDao;
+
+public class DaoFactory {
+
+	
+	public static ArticleDao getArticleDao() {
+	ArticleDao Article = null;
+
+		try {
+			Article = (ArticleDao) Class.forName(Settings.getProperty("ArticleDao"))
+					.getDeclaredConstructor().newInstance();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	
+	  return Article;
+	}
+}

@@ -1,0 +1,41 @@
+package fr.eni.demoJtable.ihm;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JFrame;
+
+import fr.eni.demoJtable.bo.Contact;
+
+public class EcranPrncipal extends JFrame {
+
+	private ContactTable tblContact;
+	private List<Contact> contacts;
+	
+	
+	
+	public EcranPrncipal() {
+		setTitle("Demo JTable");
+		setSize(400,500);
+		setResizable(false);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	}
+	
+	public ContactTable getTblContact() {
+		if(tblContact == null) {
+			tblContact = new ContactTable();
+			
+		}
+		return tblContact;
+	}
+	
+	public List<Contact> getContacts(){
+		contacts = new  ArrayList<>();
+		contacts.add(new Contact("Duck","Donald"));
+		return contacts;
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

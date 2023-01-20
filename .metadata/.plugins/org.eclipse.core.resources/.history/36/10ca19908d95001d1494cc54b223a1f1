@@ -1,0 +1,5 @@
+package fr.eni.random.bll;
+
+public class PersonneManager {
+
+}

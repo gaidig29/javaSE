@@ -1,0 +1,27 @@
+package fr.eni.random.utilitaire;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class ConnexionSqlServeur {
+
+	private static final String DB_URL = "jdbc:sqlserver://1270.0.1:1443;databasename=PERONNE_DB";
+	private static final String DB_USER = "sa";
+	private static final String DB_Password = "Pa$$w0rd";
+	private static final String JDBC_DRIVER_CLASS = "com.mmicrosoft.sqlserver.jdbc.SQLServerDriver";
+	
+	private static Connection connexion;
+	
+	public static Connection getInstance() {
+		if(connexion == null) {
+			try {
+				Class.forName(JDBC_DRIVER_CLASS);
+				connexion =  DriverManager.getConnection(DB_URL_DB_USER_DB_Password);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return connexion;
+	}
+}

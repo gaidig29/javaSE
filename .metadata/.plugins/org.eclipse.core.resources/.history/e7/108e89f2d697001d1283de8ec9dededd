@@ -1,0 +1,5 @@
+package fr.eni.papeterie.ihm.enCatalogue;
+
+public class TableCatalogueModel {
+
+}

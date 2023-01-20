@@ -1,0 +1,27 @@
+package fr.eni.papeterie.bll;
+
+public class BLLException {
+
+	private String message;
+	private Throwable exc;
+	public BLLException() {
+		super();
+	}
+	public BLLException(String message) {
+		super();
+		this.message = message;
+	}
+	public BLLException(String message, Throwable exc) {
+		super();
+		this.message = message;
+		this.exc = exc;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+
+}

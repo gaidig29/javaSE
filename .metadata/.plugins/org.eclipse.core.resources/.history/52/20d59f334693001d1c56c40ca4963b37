@@ -1,0 +1,16 @@
+package fr.eni.papeterie.bll;
+
+import java.util.List;
+
+import fr.eni.papeterie.bo.Article;
+import fr.eni.papeterie.dal.ArticleDao;
+import fr.eni.papeterie.dal.DALException;
+
+public class CatalogueManager extends BLLException {
+
+	public List<Article> getCatalogue(){
+		List<Article> listesArticle = ArticleDao.getAll();
+		return listesArticle;
+	}
+	
+}

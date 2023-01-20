@@ -1,0 +1,10 @@
+package fr.eni.demoJtable.ihm;
+
+import javax.swing.JTable;
+
+public class Contact extends JTable{
+
+	public static final int COL_PRENOM = 0;
+	public static final int COL_NOM = 1;
+
+}

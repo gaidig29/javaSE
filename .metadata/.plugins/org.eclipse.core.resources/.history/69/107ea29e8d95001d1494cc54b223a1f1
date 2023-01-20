@@ -1,0 +1,34 @@
+package fr.eni.random.bll;
+
+import java.util.List;
+
+import fr.eni.random.bo.Personne;
+
+public class PersonneManager implements Imetier {
+
+	@Override
+	public List<Personne> recupToutLeMonde() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean enregistrerUnePersonne(Personne p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean supprimerUnePersonneEnBase(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Personne tirageAuSort(List<Personne> liste) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

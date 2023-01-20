@@ -1,0 +1,5 @@
+package fr.eni.random.dal;
+
+public interface Idao {
+
+}

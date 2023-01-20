@@ -1,0 +1,27 @@
+package fr.eni.papeterie.bll;
+
+public class BLLExcepiton {
+
+	private String message;
+	private Throwable exc;
+	public BLLExcepiton() {
+		super();
+	}
+	public BLLExcepiton(String message) {
+		super();
+		this.message = message;
+	}
+	public BLLExcepiton(String message, Throwable exc) {
+		super();
+		this.message = message;
+		this.exc = exc;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+
+}

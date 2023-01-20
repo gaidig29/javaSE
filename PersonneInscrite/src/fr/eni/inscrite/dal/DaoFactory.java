@@ -1,0 +1,32 @@
+package fr.eni.inscrite.dal;
+
+import java.lang.reflect.InvocationTargetException;
+
+public class DaoFactory {
+
+	
+	public static InscritDao getArticleDao() {
+	InscritDao Article = null;
+
+		try {
+			Article = (InscritDao) Class.forName(Settings.getProperty("ArticleDao"))
+					.getDeclaredConstructor().newInstance();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	
+	  return Article;
+	}
+}

@@ -1,0 +1,9 @@
+package fr.eni.papeterie.ihm;
+
+import fr.eni.papeterie.designPatern.Observable;
+
+public interface Observer {
+
+	public void update(Observable o);
+	
+}

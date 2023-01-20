@@ -1,0 +1,23 @@
+package fr.eni.papeterie.bll;
+
+public class BLLException {
+
+	public BLLException() {
+		super();
+	}
+	public BLLException(String message) {
+		super(message);
+	}
+	public BLLException(String message, Throwable exc) {
+		super(message,exception);
+		this.message = message;
+		this.exc = exc;
+	}
+
+	public String getMessage() {
+		StringBuffer sb = new StringBuffer("Couche BLL - ");
+		sb.append(super.getMessage());
+		
+		return sb.toString() ;
+	}
+}

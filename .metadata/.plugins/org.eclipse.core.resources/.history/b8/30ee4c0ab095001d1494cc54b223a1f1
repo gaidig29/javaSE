@@ -1,0 +1,36 @@
+package fr.eni.random.bll;
+
+import java.util.List;
+
+import fr.eni.random.bo.Personne;
+import fr.eni.random.dal.Idao;
+import fr.eni.random.dal.PersonneDaoJdbcImpl;
+
+public class PersonneManager implements Imetier {
+
+	Idao dao = new PersonneDaoJdbcImpl();
+	
+	@Override
+	public List<Personne> recupToutLeMonde() {
+		return dao.getAll();
+	}
+
+	@Override
+	public boolean enregistrerUnePersonne(Personne p) {
+		return dao.save(p);
+
+	}
+
+	@Override
+	public void supprimerUnePersonneEnBase(Long id) {
+		 dao.deletebyId(id);
+	}
+
+	@Override
+	public Personne tirageAuSort(List<Personne> liste) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

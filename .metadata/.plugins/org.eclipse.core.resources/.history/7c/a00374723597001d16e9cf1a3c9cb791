@@ -1,0 +1,8 @@
+package fr.eni.demoJtable.bo;
+
+public class Contact {
+	
+	private String nom;
+	private String prenom
+
+}

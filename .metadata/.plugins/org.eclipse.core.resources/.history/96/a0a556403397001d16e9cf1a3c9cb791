@@ -1,0 +1,99 @@
+package fr.eni.papeterie.ihm;
+
+import java.util.List;
+
+import fr.eni.papeterie.bll.BLLException;
+import fr.eni.papeterie.bll.CatalogueManager;
+import fr.eni.papeterie.bo.Article;
+
+public class ArticleController {
+
+	private EcranArticle ecrArtilce;
+
+	//Attributs
+	private int indexCatalogue;
+	private CatalogueManager mger;
+	private List<Article> catalogue;
+	private static ArticleController instance;
+
+	//Constructeur
+
+	public ArticleController() {
+
+
+		//Initialisation du catalogue en mémoire
+		try {
+			mger = new CatalogueManager();
+			catalogue = mger.getCatalogue();
+		} catch (BLLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	//Méthodes
+	public static synchronized ArticleController get(){
+		if(instance == null){
+			instance = new ArticleController();
+		}
+		return instance;
+	}
+
+	public void startApp(){
+		ecrArtilce = new EcranArticle();
+
+		afficherPremierArticle();
+		ecrArtilce.setVisible(true);
+	}
+
+
+	public void afficherPremierArticle(){
+
+	}
+
+	public void precedent(){
+		//todo
+	}
+
+
+	public void suivant() {
+		if(indexCatalogue< catalogue) {
+			inde
+		}
+	}
+
+	public void nouveau() {
+		indexCatalogue = catalogue.sie();
+		ecrArtilce.aafficherNouveau();
+	}
+
+	public void enregistrer() {
+		// todo
+	}
+
+	public void supprimer() {
+		try {
+		mger.removeArticle(catalogue.get(indexCatalogue));
+		catalogue.remove(indexCatalogue);
+		}catch(BLLException e){
+			e.printStackTrace();
+		}
+		if(indexCatalogue < catalogue.size()) {
+			ecrArtilce.afficherArticle(catalogue.get(indexCatalogue));
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

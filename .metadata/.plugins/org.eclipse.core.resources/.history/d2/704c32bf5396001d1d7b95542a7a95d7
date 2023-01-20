@@ -1,0 +1,15 @@
+package fr.eni.demo;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class EcranStagiaire extends JFrame{
+	
+	private JTextField txtNom;
+	private JLabel lblNom;
+	private JPanel panBoutons;
+	private JButton btnAjouter;
+
+}

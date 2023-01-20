@@ -1,0 +1,11 @@
+package fr.eni.designPatern;
+
+public class ObserverImpl1 implements Observer {
+
+	@Override
+	public void update(Observable o) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

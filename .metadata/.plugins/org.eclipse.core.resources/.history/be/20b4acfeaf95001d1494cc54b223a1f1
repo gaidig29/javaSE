@@ -1,0 +1,13 @@
+package fr.eni.random.bll;
+
+import java.util.List;
+
+import fr.eni.random.bo.Personne;
+
+public interface Imetier {
+
+	public List<Personne> recupToutLeMonde();
+	public boolean enregistrerUnePersonne(Personne p);
+	public void supprimerUnePersonneEnBase(Long id);
+	public Personne tirageAuSort(List<Personne> liste);
+}

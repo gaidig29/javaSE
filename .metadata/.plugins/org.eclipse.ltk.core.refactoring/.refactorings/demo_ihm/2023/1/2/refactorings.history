@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;fr.eni.random&apos; to &apos;fr.eni.random.bo&apos;&#x0D;&#x0A;- Original project: &apos;demo_ihm&apos;&#x0D;&#x0A;- Original element: &apos;demo_ihm/src/fr.eni.random&apos;&#x0D;&#x0A;- Renamed element: &apos;demo_ihm/src/fr.eni.random.bo&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;fr.eni.random&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;fr.eni.random" name="fr.eni.random.bo" qualified="false" references="true" stamp="1673623367222" textual="false" version="1.0"/>
+</session>

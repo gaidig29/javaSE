@@ -1,0 +1,8 @@
+package fr.eni.random.ihm;
+
+import java.awt.event.ActionListener;
+
+public class ActionJb1 implements ActionListener{
+
+	public void actionPerformed(ActionEvent e);
+}

@@ -1,0 +1,168 @@
+package fr.eni.random.dal;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import fr.eni.random.bo.Personne;
+
+public class PersonneDaoJdbcImpl implements Idao{
+
+	@Override
+	public List<Personne> getAll() {
+		Personne utilisateur = null;
+		List<Personne> utilisateurs = new ArrayList<>();
+		ResultSet rs =null;
+		
+		try {
+			rs = this.connexion.prepareStatement("Select * From dbo.Personnes").executeQuery();
+			while (rs.next()) {
+				utilisateur = new Personne((long) rs.getInt("id"),rs.getString("nom"));
+				utilisateurs.add(utilisateur);
+			}
+			
+			return utilisateurs;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		
+		
+		
+		return null;
+	}
+
+	@Override
+	public Personne getById(Long id) {
+		Personne utilisateur = null;
+		PreparedStatement ps = null;
+		ResultSet rs =null;
+		
+		
+		try {
+			ps = this.connexion.prepareStatement("Select * FROM dbo.personnes where id=?");
+			ps.setFloat(1, id);
+			
+			rs = ps.executeQuery();
+			rs.next();
+			utilisateur = new Personne((long) rs.getInt("id"),rs.getString("nom"));
+			
+			return utilisateur;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return null;
+	}
+
+	@Override
+	public boolean save(Personne user) {
+		PreparedStatement ps = null;
+		
+		String sqlReq="Insert into dbo.personnes (nom) values (?)";
+		try {
+			ps = Idao.connexion.prepareStatement(sqlReq);
+			ps.setString(1, user.getNom());
+			
+			int verfUpdate = ps.executeUpdate();
+			
+			return (verfUpdate == 0) ? false : true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean update(Personne user) {
+		PreparedStatement ps =null;
+		
+		String sqlReq = "Update dbo.personnes set nom = ? where id = ?";
+		try {
+			ps = Idao.connexion.prepareStatement(sqlReq);
+			ps.setString(1, user.getNom());
+			ps.setFloat(2, user.getId());
+			
+			int verfUpdate = ps.executeUpdate();
+			
+			return (verfUpdate == 0) ? false : true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteById(Long id) {
+		PreparedStatement ps =null;
+		
+		String sqlReq = "Delete from dbo.personnes where id=?";
+		
+		try {
+			ps = Idao.connexion.prepareStatement(sqlReq);
+			ps.setFloat(1, id);
+			int verfUpdate = ps.executeUpdate();
+			
+			return (verfUpdate == 0) ? false : true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return false;
+	}
+
+}

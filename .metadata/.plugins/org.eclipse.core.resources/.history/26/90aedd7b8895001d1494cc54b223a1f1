@@ -1,0 +1,39 @@
+package fr.eni.random.dal;
+
+import java.util.List;
+
+import fr.eni.random.bo.Personne;
+
+public class PersonneDaoJdbcImpl implements Idao{
+
+	@Override
+	public List<Personne> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Personne getById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean save(Personne user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean update(Personne user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deletebyId(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

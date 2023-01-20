@@ -1,0 +1,5 @@
+package fr.eni.demo;
+
+public class EcranStagiaire extends JFrame{
+
+}
